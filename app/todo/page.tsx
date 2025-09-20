@@ -1,6 +1,6 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
 
@@ -24,8 +24,8 @@ export default function Todo() {
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl mb-4">Todo</h1>
+    <div className="p-50">
+      <h1 className="text-2xl mb-4 font-bold text-gray-600">Todo</h1>
 
       <div className="flex gap-2 mb-4"></div>
 
@@ -37,10 +37,19 @@ export default function Todo() {
             key={index}
             className="flex items-center bg-gray-100 p-2 rounded hover:bg-gray-200"
           >
-            <span className="flex-1">{todo.text}</span>
+            <div className="flex-1 flex flex-col">
+              <span className=" text-lg text-gray-600">{todo.text}</span>
+              <span className="text-sm   text-gray-500">{todo.text}</span>
+            </div>
             <button
               onClick={() => deleteTodo(index)}
-              className="text-red-600 hover:text-red-800 hover:cursor-pointer "
+              className="text-gray-600 hover:text-red-800 hover:cursor-pointer p-3"
+            >
+              <FontAwesomeIcon icon={faEdit} />
+            </button>
+            <button
+              onClick={() => deleteTodo(index)}
+              className="text-red-600 hover:text-red-800 hover:cursor-pointer p-3"
             >
               <FontAwesomeIcon icon={faXmark} />
             </button>
